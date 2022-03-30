@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-mrg6cjz$r9$x9sl#$zy)fys$29nvt-b!uh@us0_sjzkjyk0sk_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -147,7 +148,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS =[BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'static/staticfiles'
 MEDIA_URL = '/media/'
 # MEDIA_ROOT = BASE_DIR + MEDIA_URL
 DEFAULT_FILE_STORAGE ="cloudinary_storage.storage.MediaCloudinaryStorage"
