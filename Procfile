@@ -1,0 +1,1 @@
+web: gunicorn lead_api_project.wsgi
